@@ -18,15 +18,13 @@ function playAudio() {
   isPlay = true;
     play.classList.remove('play');
   play.classList.add('pause');
-
   } else {
     audio.pause();
     isPlay = false;
         play.classList.remove('pause');
     play.classList.add('play');
-
   }
-};
+}
 play.addEventListener('click', playAudio);
 
 
@@ -39,8 +37,7 @@ function playNext() {
   }
   title.innerHTML = trackList[playNum];
     playAudio();
-
-};
+}
 next.addEventListener('click', playNext);
 
 function playPrev() {
@@ -52,5 +49,5 @@ playNum--;
   }
   playAudio();
   title.innerHTML = trackList[playNum];
-};
+}
 prev.addEventListener('click', playPrev);
