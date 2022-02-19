@@ -19,3 +19,13 @@ button {
   background: url('./assets/svg/nextbutton.svg') no-repeat;
   transform: rotate(180deg);
 }
+
+section {
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+h1 {
+  padding-top: 100px;
+  font-size: 32px;
+}
