@@ -1,0 +1,21 @@
+button {
+  cursor: pointer;
+  border: none;
+  width: 100px;
+  height: 100px;
+}
+
+.play {
+  background: url('./assets/svg/play-button.svg') no-repeat;
+}
+
+.pause {
+  background: url('./assets/svg/pause-button.svg') no-repeat;
+}
+.next {
+  background: url('./assets/svg/nextbutton.svg') no-repeat;
+}
+.prev {
+  background: url('./assets/svg/nextbutton.svg') no-repeat;
+  transform: rotate(180deg);
+}
