@@ -6,6 +6,7 @@ const audio = new Audio(),
       rangeInput = document.querySelector('.progress-bar'),
       rangeValue = document.querySelector('.volume-bar'),
       valueButton = document.querySelector('.v-btn'),
+      logoAthor = document.querySelector('.logo_author'),
       trackList = ['Fun mode - я ухожу',
                   'Fun Mode - Стены цитадели',
                   'Radio Tapok - attack the dead man',
@@ -64,6 +65,7 @@ let isPlay = false,
 
 function playAudio() {
   audio.src = `assets/audio/${trackList[playNum]}.mp3`;
+  logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
   //audio.currentTime = 0;
   if (!isPlay) {
     audio.play();
@@ -85,6 +87,7 @@ function playNext() {
  if (playNum >= trackList.length) {
     playNum = 0;
     audio.src = `assets/audio/${trackList[playNum]}.mp3`;
+     logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
     title.innerHTML = trackList[playNum];
     audio.play();
     isPlay = true;
@@ -92,6 +95,7 @@ function playNext() {
     play.classList.add('pause');
     }
     audio.src = `assets/audio/${trackList[playNum]}.mp3`;
+     logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
     title.innerHTML = trackList[playNum];
     audio.play();
     isPlay = true;
@@ -106,12 +110,14 @@ function playPrev() {
     playNum = trackList.length - 1;
     title.innerHTML = trackList[playNum];
     audio.src = `assets/audio/${trackList[playNum]}.mp3`;
+     logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
     audio.play();
     isPlay = true;
     play.classList.remove('play');
     play.classList.add('pause');
   }
     audio.src = `assets/audio/${trackList[playNum]}.mp3`;
+     logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
     audio.play();
     isPlay = true;
     play.classList.remove('play');

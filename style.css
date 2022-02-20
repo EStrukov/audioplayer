@@ -66,3 +66,7 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+.logo_author {
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
