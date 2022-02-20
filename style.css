@@ -73,18 +73,17 @@ h1 {
 .progress_container {
   background: white;
   border-radius: 5px;
-  width: 100%;
+  width: 250px;
   height: 10px;
   display: flex;
   align-items: center;
   cursor: pointer;
-  margin: 10px 0 10px 0;
+  margin: 10px auto 10px auto;
 }
 .progress {
   background: rgb(4, 106, 202);
   box-shadow: 1px 1px 5px rgb(29, 29, 29);
   border-radius: 5px;
   height: 8px;
-  /* width: 150px; */
   margin-left: 1px;
 }
