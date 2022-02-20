@@ -9,7 +9,7 @@ const audio = new Audio(),
       trackList = ['Fun mode - я ухожу',
                   'Fun Mode - Стены цитадели',
                   'Radio Tapok - attack the dead man',
-                  'Level_70_Elite_Tauren_Chieftain_I_Am_Murloc',
+                  'Level 70 Elite Tauren Chieftain - I Am Murloc',
                   'Fun mode - навсегда один',
                   'Evergrey & Floor Jansen - In Orbit'];
 let numValue = 1;
