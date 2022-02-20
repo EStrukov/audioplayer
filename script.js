@@ -6,9 +6,12 @@ const audio = new Audio(),
       rangeInput = document.querySelector('.progress-bar'),
       rangeValue = document.querySelector('.volume-bar'),
       valueButton = document.querySelector('.v-btn'),
-      trackList = ['fan mode - asda',
-                  'Fun_Mode_-_Steny_citadeli',
-                  'Radio tapok - csacasd'];
+      trackList = ['Fun mode - я ухожу',
+                  'Fun Mode - Стены цитадели',
+                  'Radio Tapok - attack the dead man',
+                  'Level_70_Elite_Tauren_Chieftain_I_Am_Murloc',
+                  'Fun mode - навсегда один',
+                  'Evergrey & Floor Jansen - In Orbit'];
 let numValue = 1;
  //document.querySelector('.volume-bar').oninput = volume;
 /*
@@ -118,21 +121,21 @@ function playPrev() {
 prev.addEventListener('click', playPrev);
  //бегунок песни
 function redLine() {
-    const max = rangeInput.max
-    const val = rangeInput.value
+    const max = rangeInput.max;
+    const val = rangeInput.value;
     
-    rangeInput.style.backgroundSize = val * 100 / max + '% 100%'
-    let time = Math.floor(val / 60) + ":"
+    rangeInput.style.backgroundSize = val * 100 / max + '% 100%';
+    let time = Math.floor(val / 60) + ":";
     if(val % 60 < 10) {
-        time += '0'
+        time += '0';
     }
-    time += val % 60
-    document.querySelector('.this-time').innerHTML = time
+    time += val % 60;
+    document.querySelector('.this-time').innerHTML = time;
 }
 
 rangeInput.addEventListener('input', () => {
-    const val = rangeInput.value
-    redLine()
-    audio.currentTime = val
-})
+    const val = rangeInput.value;
+    redLine();
+    audio.currentTime = val;
+});
 
