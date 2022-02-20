@@ -3,10 +3,13 @@ const audio = new Audio(),
       next = document.querySelector('.next'),
       prev = document.querySelector('.prev'),
       title = document.querySelector('.name-song'),
-      rangeInput = document.querySelector('.progress-bar'),
+      progressContainer = document.querySelector('.progress_container'),
+      progress = document.querySelector('.progress'),
       rangeValue = document.querySelector('.volume-bar'),
       valueButton = document.querySelector('.v-btn'),
       logoAthor = document.querySelector('.logo_author'),
+      audioPlayer = document.querySelector(".audio-player"),
+      timeProgress = document.querySelector(".this-time"),
       trackList = ['Fun mode - я ухожу',
                   'Fun Mode - Стены цитадели',
                   'Radio Tapok - attack the dead man',
@@ -127,22 +130,37 @@ function playPrev() {
 }
 prev.addEventListener('click', playPrev);
  //бегунок песни
-function redLine() {
-    const max = rangeInput.max;
-    const val = rangeInput.value;
-    
-    rangeInput.style.backgroundSize = val * 100 / max + '% 100%';
-    let time = Math.floor(val / 60) + ":";
-    if(val % 60 < 10) {
-        time += '0';
-    }
-    time += val % 60;
-    document.querySelector('.this-time').innerHTML = time;
+
+function updateProgress(event) {
+  const {duration, currentTime} = event.srcElement;
+  const progressPercent = (currentTime / duration) * 100;
+  progress.style.width = `${progressPercent}%`;
 }
+audio.addEventListener('timeupdate', updateProgress);
 
-rangeInput.addEventListener('input', () => {
-    const val = rangeInput.value;
-    redLine();
-    audio.currentTime = val;
-});
+function setProgress(event) {
+  const width = this.clientWidth;
+  const clickX = event.offsetX;
+  const duration = audio.duration;
 
+  audio.currentTime = (clickX / width) * duration;
+}
+progressContainer.addEventListener('click', setProgress);
+
+audio.addEventListener('ended', playNext);
+
+function setTime() {
+  progress.value = (audio.currentTime / audio.duration) * 100;
+  let minutes = Math.floor(audio.currentTime / 60);
+  if (minutes < 10) {
+    minutes = '0' + String(minutes);
+  }
+
+  let seconds = Math.floor(audio.currentTime % 60);
+  if (seconds < 10) {
+    seconds = '0' + String(seconds);
+  }
+
+  timeProgress.innerHTML = `${minutes}:${seconds}`;
+}
+audio.addEventListener('timeupdate', setTime);

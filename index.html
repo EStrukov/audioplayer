@@ -11,17 +11,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet"><body>
   <div class="bg">
-  <section>
+  <section class="audio-player">
   <h1 class="name-song">Fun mode - я ухожу</h1>
   <img src="./assets/logo/Fun mode - я ухожу.jpg" class="logo_author" width="200" height="200">
-  <div class="this-time">0:00</div>
-  <input type="range" class="progress-bar" min="0" max="229" value="0" id="range" oninput="range.value=value">  
-  <button class="play"></button>
+  <div class="this-time">00:00</div>
+  <div class="progress_container">
+      <div class="progress"></div>
+  </div>  <button class="play"></button>
   <button class="prev"></button>
   <button class="next"></button>
   <div class="volume-block">
     <button class="v-btn vol-on"></button>
-    <input type="range" class="volume-bar" min="0" max="100" value="100" id="volume" oninput="volume.value=value" style="background-size: 100% 100%;">
+    <input type="range" class="volume-bar" min="0" max="100" value="100" id="volume" oninput="volume.value=value">
     <div class="volume-num">100</div>
   </div>
 </section>
