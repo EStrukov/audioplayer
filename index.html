@@ -6,14 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Metal Player</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="./assets/favicon.png">
+
 </head>
 <body>
   <section>
   <h1 class="name-song">fan mode - asda</h1>
+  <div class="this-time">0:00</div>
+  <input type="range" class="progress-bar" min="0" max="229" value="0" id="range" oninput="range.value=value">  
   <button class="play"></button>
   <button class="prev"></button>
   <button class="next"></button>
-  <script src="./script.js"></script>
-  </section>
+  <div class="volume-block">
+    <button class="v-btn vol-on"></button>
+    <input type="range" class="volume-bar" min="0" max="100" value="100" id="volume" oninput="volume.value=value" style="background-size: 100% 100%;">
+    <div class="volume-num">100</div>
+  </div>
+</section>
+<script src="./script.js"></script>
 </body>
 </html>
