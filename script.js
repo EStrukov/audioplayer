@@ -37,9 +37,9 @@ rangeValue.addEventListener('input', () => {
     }
 });
 valueButton.addEventListener('click', () => {
-    valueButton.classList.toggle('volume-icon-none');
-    valueButton.classList.toggle('volume-icon');
-    if(valueButton.classList.contains('volume-icon-none')) {
+    valueButton.classList.toggle('vol-off');
+    valueButton.classList.toggle('vol-on');
+    if(valueButton.classList.contains('vol-off')) {
         audio.volume = 0;
         rangeValue.value = 0;
         const max = rangeValue.max;
