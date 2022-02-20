@@ -12,7 +12,8 @@ const audio = new Audio(),
                   'Radio Tapok - attack the dead man',
                   'Level 70 Elite Tauren Chieftain - I Am Murloc',
                   'Fun mode - навсегда один',
-                  'Evergrey & Floor Jansen - In Orbit'];
+                  'Evergrey & Floor Jansen - In Orbit',
+                  'Bloodywood - Aaj'];
 let numValue = 1;
  //document.querySelector('.volume-bar').oninput = volume;
 /*
