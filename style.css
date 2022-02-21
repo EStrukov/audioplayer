@@ -23,7 +23,7 @@ button {
   transform: rotate(180deg);
 }
 body {
-  background: url('./assets/lvl70.jpg')0 0/cover no-repeat;
+  background: url('./assets/bg.jpg')repeat;
 }
 section {
   background: rgba(109, 108, 117,0.9);

@@ -17,7 +17,9 @@ const audio = new Audio(),
                   'Fun mode - навсегда один',
                   'Evergrey & Floor Jansen - In Orbit',
                   'Bloodywood - Aaj'];
-let numValue = 1;
+let numValue = 1,
+    isPlay = false,
+    playNum = 0;
  //document.querySelector('.volume-bar').oninput = volume;
 /*
   function volume() {
@@ -29,10 +31,6 @@ rangeValue.addEventListener('input', () => {
     numValue = rangeValue.value / 100;
     audio.volume = numValue;
     document.querySelector('.volume-num').innerHTML = rangeValue.value;
-    const max = rangeValue.max;
-    const val = rangeValue.value;
-    
-    rangeValue.style.backgroundSize = val * 100 / max + '% 100%';
     if(numValue === 0) {
         valueButton.classList.add('vol-off');
         valueButton.classList.remove('vol-on');
@@ -64,13 +62,11 @@ valueButton.addEventListener('click', () => {
     }
 });
 
-let isPlay = false,
-    playNum = 0;
 
 function playAudio() {
   audio.src = `assets/audio/${trackList[playNum]}.mp3`;
   logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
-  //audio.currentTime = 0;
+  audio.currentTime = 0;
   if (!isPlay) {
     audio.play();
     isPlay = true;
@@ -91,20 +87,18 @@ function playNext() {
  if (playNum >= trackList.length) {
     playNum = 0;
     audio.src = `assets/audio/${trackList[playNum]}.mp3`;
-     logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
+    logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
     title.innerHTML = trackList[playNum];
+    if (isPlay == true) {
     audio.play();
-    isPlay = true;
-    play.classList.remove('play');
-    play.classList.add('pause');
     }
+  }
     audio.src = `assets/audio/${trackList[playNum]}.mp3`;
-     logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
+    logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
     title.innerHTML = trackList[playNum];
+    if (isPlay == true) {
     audio.play();
-    isPlay = true;
-    play.classList.remove('play');
-    play.classList.add('pause');
+    }
   }
 next.addEventListener('click', playNext);
 
@@ -114,29 +108,20 @@ function playPrev() {
     playNum = trackList.length - 1;
     title.innerHTML = trackList[playNum];
     audio.src = `assets/audio/${trackList[playNum]}.mp3`;
-     logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
+    logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
+    if (isPlay == true) {
     audio.play();
-    isPlay = true;
-    play.classList.remove('play');
-    play.classList.add('pause');
+    }
   }
     audio.src = `assets/audio/${trackList[playNum]}.mp3`;
-     logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
-    audio.play();
-    isPlay = true;
-    play.classList.remove('play');
-    play.classList.add('pause');
+    logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
     title.innerHTML = trackList[playNum];
+    if (isPlay == true) {
+    audio.play();
+    }
 }
 prev.addEventListener('click', playPrev);
  //бегунок песни
-
-function updateProgress(event) {
-  const {duration, currentTime} = event.srcElement;
-  const progressPercent = (currentTime / duration) * 100;
-  progress.style.width = `${progressPercent}%`;
-}
-audio.addEventListener('timeupdate', updateProgress);
 
 function setProgress(event) {
   const width = this.clientWidth;
@@ -149,8 +134,17 @@ progressContainer.addEventListener('click', setProgress);
 
 audio.addEventListener('ended', playNext);
 
+/*
+function updateProgress(event) {
+  const {duration, currentTime} = event.srcElement;
+  const progressPercent = (currentTime / duration) * 100;
+  progress.style.width = `${progressPercent}%`;
+}
+audio.addEventListener('timeupdate', updateProgress);
+*/
 function setTime() {
   progress.value = (audio.currentTime / audio.duration) * 100;
+  progress.style.width = `${progress.value}%`;
   let minutes = Math.floor(audio.currentTime / 60);
   if (minutes < 10) {
     minutes = '0' + String(minutes);
