@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,26 +8,29 @@
   <title>Metal Player</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="./assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet"><body>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+
+<body>
   <div class="bg">
-  <section class="audio-player">
-  <h1 class="name-song">Fun mode - я ухожу</h1>
-  <img src="./assets/logo/Fun mode - я ухожу.jpg" class="logo_author" width="200" height="200">
-  <div class="this-time">00:00</div>
-  <div class="progress_container">
-      <div class="progress"></div>
-  </div>  <button class="play"></button>
-  <button class="prev"></button>
-  <button class="next"></button>
-  <div class="volume-block">
-    <button class="v-btn vol-on"></button>
-    <input type="range" class="volume-bar" min="0" max="100" value="100" id="volume" oninput="volume.value=value">
-    <div class="volume-num">100</div>
+    <section class="audio-player">
+      <h1 class="name-song">Fun mode - я ухожу</h1>
+      <img src="./assets/logo/Fun mode - я ухожу.jpg" class="logo_author" width="200" height="200">
+      <div class="this-time">00:00</div>
+      <div class="progress_container">
+        <div class="progress"></div>
+      </div> <button class="play"></button>
+      <button class="prev"></button>
+      <button class="next"></button>
+      <div class="volume-block">
+        <button class="v-btn vol-on"></button>
+        <input type="range" class="volume-bar" min="0" max="100" value="100" id="volume" oninput="volume.value=value">
+        <div class="volume-num">100</div>
+      </div>
+    </section>
   </div>
-</section>
-</div>
-<script src="./script.js"></script>
+  <script src="./script.js"></script>
 </body>
+
 </html>

@@ -1,12 +1,14 @@
-*{
-  font-family: 'Neucha',cursive;
+* {
+  font-family: 'Neucha', cursive;
 }
+
 button {
   cursor: pointer;
   border: none;
   width: 50px;
   height: 50px;
 }
+
 .play {
   background: url('./assets/svg/play-button.svg') no-repeat;
 }
@@ -14,62 +16,76 @@ button {
 .pause {
   background: url('./assets/svg/pause-button.svg') no-repeat;
 }
+
 .next {
   background: url('./assets/svg/nextbutton.svg') no-repeat;
 
 }
+
 .prev {
   background: url('./assets/svg/nextbutton.svg') no-repeat;
   transform: rotate(180deg);
 }
+
 body {
   background: url('./assets/bg.jpg')repeat;
 }
+
 section {
-  background: rgba(109, 108, 117,0.9);
+  background: rgba(109, 108, 117, 0.9);
   width: 300px;
   margin: 100px auto;
   text-align: center;
   border: 1px slategray solid;
 }
+
 h1 {
   width: 300px;
   height: 100px;
-  color:#fff;
+  color: #fff;
   font-size: 32px;
 }
+
 .volume-bar {
   width: 100px;
 }
-.progress-bar{
+
+.progress-bar {
   display: block;
   width: 250px;
   margin: 0 auto;
   margin-bottom: 20px;
 }
+
 .vol-on {
   background: url('./assets/svg/vol-on.svg')center /25px 25px no-repeat;
 }
+
 .vol-off {
   background: url('./assets/svg/vol-off.svg')center /25px 25px no-repeat;
 }
+
 .volume-num {
-  color:#fff;
+  color: #fff;
   display: inline-block;
   width: 20px;
 }
+
 .this-time {
   color: #fff;
 }
-.volume-block{
+
+.volume-block {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .logo_author {
   margin: 0 auto;
   margin-bottom: 20px;
 }
+
 .progress_container {
   background: white;
   border-radius: 5px;
@@ -80,6 +96,7 @@ h1 {
   cursor: pointer;
   margin: 10px auto 10px auto;
 }
+
 .progress {
   background: rgb(4, 106, 202);
   box-shadow: 1px 1px 5px rgb(29, 29, 29);

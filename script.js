@@ -1,26 +1,27 @@
 const audio = new Audio(),
-      play = document.querySelector('.play'),
-      next = document.querySelector('.next'),
-      prev = document.querySelector('.prev'),
-      title = document.querySelector('.name-song'),
-      progressContainer = document.querySelector('.progress_container'),
-      progress = document.querySelector('.progress'),
-      rangeValue = document.querySelector('.volume-bar'),
-      valueButton = document.querySelector('.v-btn'),
-      logoAthor = document.querySelector('.logo_author'),
-      audioPlayer = document.querySelector(".audio-player"),
-      timeProgress = document.querySelector(".this-time"),
-      trackList = ['Fun mode - я ухожу',
-                  'Fun Mode - Стены цитадели',
-                  'Radio Tapok - attack the dead man',
-                  'Level 70 Elite Tauren Chieftain - I Am Murloc',
-                  'Fun mode - навсегда один',
-                  'Evergrey & Floor Jansen - In Orbit',
-                  'Bloodywood - Aaj'];
+  play = document.querySelector('.play'),
+  next = document.querySelector('.next'),
+  prev = document.querySelector('.prev'),
+  title = document.querySelector('.name-song'),
+  progressContainer = document.querySelector('.progress_container'),
+  progress = document.querySelector('.progress'),
+  rangeValue = document.querySelector('.volume-bar'),
+  valueButton = document.querySelector('.v-btn'),
+  logoAthor = document.querySelector('.logo_author'),
+  audioPlayer = document.querySelector(".audio-player"),
+  timeProgress = document.querySelector(".this-time"),
+  trackList = ['Fun mode - я ухожу',
+    'Fun Mode - Стены цитадели',
+    'Radio Tapok - attack the dead man',
+    'Level 70 Elite Tauren Chieftain - I Am Murloc',
+    'Fun mode - навсегда один',
+    'Evergrey & Floor Jansen - In Orbit',
+    'Bloodywood - Aaj'
+  ];
 let numValue = 1,
-    isPlay = false,
-    playNum = 0;
- //document.querySelector('.volume-bar').oninput = volume;
+  isPlay = false,
+  playNum = 0;
+//document.querySelector('.volume-bar').oninput = volume;
 /*
   function volume() {
   let v = this.value;
@@ -28,38 +29,38 @@ let numValue = 1,
 }
 */
 rangeValue.addEventListener('input', () => {
-    numValue = rangeValue.value / 100;
-    audio.volume = numValue;
-    document.querySelector('.volume-num').innerHTML = rangeValue.value;
-    if(numValue === 0) {
-        valueButton.classList.add('vol-off');
-        valueButton.classList.remove('vol-on');
-    } else {
-        valueButton.classList.add('vol-on');
-        valueButton.classList.remove('vol-off');
-    }
+  numValue = rangeValue.value / 100;
+  audio.volume = numValue;
+  document.querySelector('.volume-num').innerHTML = rangeValue.value;
+  if (numValue === 0) {
+    valueButton.classList.add('vol-off');
+    valueButton.classList.remove('vol-on');
+  } else {
+    valueButton.classList.add('vol-on');
+    valueButton.classList.remove('vol-off');
+  }
 });
 valueButton.addEventListener('click', () => {
-    valueButton.classList.toggle('vol-off');
-    valueButton.classList.toggle('vol-on');
-    if(valueButton.classList.contains('vol-off')) {
-        audio.volume = 0;
-        rangeValue.value = 0;
-        const max = rangeValue.max;
-        const val = rangeValue.value;
-        rangeValue.style.backgroundSize = val * 100 / max + '% 100%';
-        document.querySelector('.volume-num').innerHTML = 0;
-    } else {
-        if(numValue === 0) {
-            numValue += 0.01;
-        }
-        rangeValue.value = Math.trunc(numValue * 100);
-        const max = rangeValue.max;
-        const val = rangeValue.value;
-        rangeValue.style.backgroundSize = val * 100 / max + '% 100%';
-        audio.volume = numValue;
-        document.querySelector('.volume-num').innerHTML = Math.trunc(numValue * 100);
+  valueButton.classList.toggle('vol-off');
+  valueButton.classList.toggle('vol-on');
+  if (valueButton.classList.contains('vol-off')) {
+    audio.volume = 0;
+    rangeValue.value = 0;
+    const max = rangeValue.max;
+    const val = rangeValue.value;
+    rangeValue.style.backgroundSize = val * 100 / max + '% 100%';
+    document.querySelector('.volume-num').innerHTML = 0;
+  } else {
+    if (numValue === 0) {
+      numValue += 0.01;
     }
+    rangeValue.value = Math.trunc(numValue * 100);
+    const max = rangeValue.max;
+    const val = rangeValue.value;
+    rangeValue.style.backgroundSize = val * 100 / max + '% 100%';
+    audio.volume = numValue;
+    document.querySelector('.volume-num').innerHTML = Math.trunc(numValue * 100);
+  }
 });
 
 
@@ -83,45 +84,45 @@ play.addEventListener('click', playAudio);
 
 
 function playNext() {
- ++playNum;
- if (playNum >= trackList.length) {
+  ++playNum;
+  if (playNum >= trackList.length) {
     playNum = 0;
     audio.src = `assets/audio/${trackList[playNum]}.mp3`;
     logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
     title.innerHTML = trackList[playNum];
     if (isPlay == true) {
-    audio.play();
+      audio.play();
     }
   }
-    audio.src = `assets/audio/${trackList[playNum]}.mp3`;
-    logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
-    title.innerHTML = trackList[playNum];
-    if (isPlay == true) {
+  audio.src = `assets/audio/${trackList[playNum]}.mp3`;
+  logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
+  title.innerHTML = trackList[playNum];
+  if (isPlay == true) {
     audio.play();
-    }
   }
+}
 next.addEventListener('click', playNext);
 
 function playPrev() {
   --playNum;
- if (playNum < 0) {
+  if (playNum < 0) {
     playNum = trackList.length - 1;
     title.innerHTML = trackList[playNum];
     audio.src = `assets/audio/${trackList[playNum]}.mp3`;
     logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
     if (isPlay == true) {
-    audio.play();
+      audio.play();
     }
   }
-    audio.src = `assets/audio/${trackList[playNum]}.mp3`;
-    logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
-    title.innerHTML = trackList[playNum];
-    if (isPlay == true) {
+  audio.src = `assets/audio/${trackList[playNum]}.mp3`;
+  logoAthor.src = `./assets/logo/${trackList[playNum]}.jpg`;
+  title.innerHTML = trackList[playNum];
+  if (isPlay == true) {
     audio.play();
-    }
+  }
 }
 prev.addEventListener('click', playPrev);
- //бегунок песни
+//бегунок песни
 
 function setProgress(event) {
   const width = this.clientWidth;
