@@ -3,10 +3,12 @@
 }
 
 button {
+  border-radius: 50%;
   cursor: pointer;
   border: none;
   width: 50px;
   height: 50px;
+  background: transparent;
 }
 
 .play {
@@ -19,7 +21,6 @@ button {
 
 .next {
   background: url('./assets/svg/nextbutton.svg') no-repeat;
-
 }
 
 .prev {
@@ -49,6 +50,7 @@ h1 {
   height: 80px;
   color: #fff;
   font-size: 32px;
+  text-shadow: 1px 1px 1px red, 2px 2px 1px red;
 }
 
 .volume-bar {
@@ -62,21 +64,21 @@ h1 {
   border: 1px #fff solid;
 }
  input[type=range]::-webkit-slider-runnable-track {
-   border-radius: 5px;
+   border-radius: 50%;
    height: 7px;
    /*border: 1px solid rgb(255, 255, 255);*/
    background-color: rgb(250, 250, 250);
  }
 
  input[type=range]::-webkit-slider-thumb {
-   background: #ff0000;
+   background: #8b0202;
    cursor: pointer;
    border-radius: 7px;
    width: 7px;
    height: 7px;
    -webkit-appearance: none;
-  box-shadow: 1px 1px 5px rgb(29, 29, 29);
-
+  /*box-shadow: 1px 1px 5px rgb(29, 29, 29);*/
+box-shadow: -53px 0 0 50px #ff0000;
  }
 
  input[type=range]::-moz-range-track {
@@ -88,7 +90,7 @@ h1 {
  }
 
  input[type=range]::-moz-range-thumb {
-   background: #ff0000;
+   background: rgb(255, 0, 0);
    cursor: pointer;
    border-radius: 7px;
    width: 7px;
